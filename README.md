@@ -2,26 +2,26 @@
 A visualization of the 1994 US Census using Scheme.
 
 
-“Will you have an annual income over $50,000?” – An analysis of the 1994 US Census
-Authors: Aleph Aseffa, Wagih Henawi, and Haruko Okada.
+## “Will you have an annual income over $50,000?” – An analysis of the 1994 US Census
+### Authors: Aleph Aseffa, Wagih Henawi, and Haruko Okada.
 
-Project Title - Will you have an annual income over $50,000? – An analysis of the 1994 US Census.
+#### Project Title - Will you have an annual income over $50,000? – An analysis of the 1994 US Census.
 
-Project Goals
+#### Project Goals
 For our project, we took a dataset which was a modified version of the US Census of 1994 which had information on the characteristics of 32500 individuals and for each individual, a prediction of whether their annual income would be over $50,000.
 
 Initially, our reach goal was to create a procedure that would calculate the probability of a certain hypothetical individual earning over $50,000 a year (when data about the individual is entered by a user). Our safe goal was to find the characteristics that make a person most likely to earn over $50,000 annual income.
 
 However, we found both goals to be rather easy to reach, so we ended up ignoring the safe goal, implementing the reach goal, and going one step further. We selected education level, race, and sex as the three most significant factors that affect earning potential and wanted to explore how each of these factors contribute to the chance of an individual earning over $50k. This became the new reach goal of our project.
 
-Description of original dataset
+#### Description of original dataset
 Link to dataset: https://www.kaggle.com/uciml/adult-census-income/home 
 
 The original data for this dataset was the 1994 Census (provided by the census bureau). Ronny Kohavi and Barry Becker from the UCI Machine Learning Institute extracted data from this census database and used the relevant data and mathematical techniques to predict whether the income of the person from the census was over $50,000 or not. This prediction of income was then added to the dataset. For this project, we are using the database that has been edited by Kohavi and Becker.
 
 This dataset includes 32562 rows and 15 columns. The first row of the dataset is a description of what each column represents. The columns of the database are as follows: age, workclass, fnlwgt, education, education.num, marital.status, occupation, relationship, race, sex, capital.gain, capital.loss, hours.per.week, native.country, income. 
 
-Explanation of each column (some parts taken from scg.sdsu.edu/dataset-adult_r):
+#### Explanation of each column (some parts taken from scg.sdsu.edu/dataset-adult_r):
 
 
 Note: if the data held in the column is not described, it is because we will not be using the data in our analysis.
@@ -61,7 +61,7 @@ Income = The income of the individual (either “<=50k” or “>50k”)
 
 In these categories, if the required data is not available, a “?” is present.
 
-Description of wrangled dataset
+#### Description of wrangled dataset
 While this dataset had a vast amount of useful information, we did not need all of that for our analysis. 
 
 We selected age, work-class, education-level, race, sex, hours-per-week, and income as the relevant categories for each individual in the dataset, and removed all other columns. We also removed all instances of data for individuals that were not from the United States. Additionally, we changed the age and hours-per-week from continuous to discrete categories.
@@ -73,7 +73,7 @@ We then defined the variable wrangled-dataset as the dataset to be used for the 
 
 We also defined another variable no-income which is the same as wrangled-dataset but has the income field removed. This was done as it conflicted with one of our procedures.
 
-Explanation of each column in wrangled-dataset (each column contains a string):
+#### Explanation of each column in wrangled-dataset (each column contains a string):
 Age = The age range of the individual (can be either “17-22”, “23-45”, “46-65”, or “65+”)
 
 Work-class = The classification of the organization the individual is working at (can be either “Private”, “Self-emp-not-inc” (meaning self-employed but not incorporated), “Self-emp-inc” (meaning self-employed and incorporated), “Local-gov”, “State-gov”, “Without-pay”, “Never-worked”).
@@ -90,16 +90,16 @@ Income = The income of the individual (either “<=50k” or “>50k”)
 
 Note: the no-income dataset is exactly the same as wrangled-dataset but with the income column removed. This was needed to avoid a conflict with a different procedure.
 
-Description of algorithms
+#### Description of algorithms
 We used quite a few procedures for our data analysis.
 
 
 The procedures we used for the data-wrangling were:
-•	change-age-single
-•	change-hours-single
-•	remove-columns
-•	remove-income-single
-•	remove-foreigners
+* change-age-single
+* change-hours-single
+* remove-columns
+*	remove-income-single
+*	remove-foreigners
 These procedures are explained in the documentation.
 
 We have two main algorithms, plot-lst-helper and percentage.
@@ -142,12 +142,12 @@ Instructions for running code
 To determine the percentage of individuals with such characteristics that earn over 50k:
 Step 1: (filter-table wrangled-dataset age wc ed r s hrs)
 Conditions:
-•	age is an element of age-list
-•	wc is an element of wc-list
-•	ed is an element of ed-list
-•	r is an element of race-list
-•	s is an element of sex-list
-•	hrs is an element of hrs-list
+*	age is an element of age-list
+*	wc is an element of wc-list
+*	ed is an element of ed-list
+*	r is an element of race-list
+*	s is an element of sex-list
+*	hrs is an element of hrs-list
 This creates a list of individuals with the same characteristics that you entered.
 Step 2: Run (percentage table) on the table you just created. Note: table must not be empty.
 This will give you the proportion of individuals in table (the list of individuals with the same characteristics you entered) that earn over 50k.
@@ -175,8 +175,10 @@ Step 5: Plot the previous table
         #:width 15000)
 Or alternatively, it has been defined as the variable final-plot so you can just type that.
 
-Description of what the analysis shows
- 
+#### Description of what the analysis shows
+
+# ADD THIS
+
 The above figure is small extract of what final-plot produces.
 
 For our analysis, we set these factors as constant:
